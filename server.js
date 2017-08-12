@@ -9,7 +9,7 @@ var articleOne = {
   title: "Article One"  ,
   heading: "Article One",
   date: "Aug 12, 2017",
-  contetn: `
+  content: `
                   <p>
                     This is my first paragraph. This is my first paragraph.
                     This is my first paragraph.
