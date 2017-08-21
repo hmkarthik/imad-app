@@ -136,7 +136,7 @@ app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
 });
 
 app.get('/articles/:articleName', function (req, res) {
-    pool.query("SELECT * FROM article1 WHERE title = " + req.params.articleName, funtion(err, result) {
+    pool.query("SELECT * FROM article1 WHERE title = " + res.params.articleName, function(err, result) {
       if(err) {
           res.status(500).send(err.toString());
       } else {
@@ -146,7 +146,7 @@ app.get('/articles/:articleName', function (req, res) {
             var articleData = result.rows[0];
             res.send(createTemplate(articleData));
           }
-      }
+      }        
     });
 });
 
