@@ -120,21 +120,6 @@ app.get('/test-db', function(req, res) {
    });
 });
 
-var counter =0;
-app.get('/counter', function (req, res) {
-    counter = counter + 1;
-    res.send(counter.toString());
-});
-
-var names = [];
-app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
-    //get the name from the request
-    var name = req.query.name;
-    names.push(name);
-    //JSON : Javascript Object Notation
-    res.send(JSON.stringify(names));
-});
-
 app.get('/articles/:articleName', function (req, res) {
    pool.query("SELECT * FROM article1 WHERE title = '" +res.params.articleName + "'", function(err,result) {
       if(err) {
@@ -148,6 +133,21 @@ app.get('/articles/:articleName', function (req, res) {
           }
       }
    });
+});
+
+var counter =0;
+app.get('/counter', function (req, res) {
+    counter = counter + 1;
+    res.send(counter.toString());
+});
+
+var names = [];
+app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
+    //get the name from the request
+    var name = req.query.name;
+    names.push(name);
+    //JSON : Javascript Object Notation
+    res.send(JSON.stringify(names));
 });
 
 /*app.get('/articles/:articleName', function (req, res) {
